@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mars_Project.Pages
 {
-    internal class Education
+    internal class Languages
     {
     }
 }

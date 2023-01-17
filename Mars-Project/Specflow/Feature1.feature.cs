@@ -88,7 +88,7 @@ namespace Mars_Project.Specflow
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("01 Seller is able to add Language details")]
-        [NUnit.Framework.TestCaseAttribute("English", "Fluent", null)]
+        [NUnit.Framework.TestCaseAttribute("English", "Beginner", null)]
         public void _01SellerIsAbleToAddLanguageDetails(string languages, string level, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -473,7 +473,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("04 Seller is able to add the Certifications details")]
-        [NUnit.Framework.TestCaseAttribute("Istqb Foundation", "ISTQB", "2022", null)]
+        [NUnit.Framework.TestCaseAttribute("Istqb", "ISTQB Foundation", "2022", null)]
         public void _04SellerIsAbleToAddTheCertificationsDetails(string certifications, string certificateFrom, string year, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
@@ -507,7 +507,7 @@ this.FeatureBackground();
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("seller is able to edit the Certifications details")]
-        [NUnit.Framework.TestCaseAttribute("Istqb Advance", "ISTQB", "2023", null)]
+        [NUnit.Framework.TestCaseAttribute("Istqb Advance", "ISTQB  Foundation", "2023", null)]
         public void SellerIsAbleToEditTheCertificationsDetails(string certifications, string certificateFrom, string year, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;

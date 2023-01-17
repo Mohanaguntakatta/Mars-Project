@@ -14,8 +14,8 @@ Scenario Outline:01 Seller is able to add Language details
 	Then '<language>'and '<level>' should be added successfully
 
 	Examples: 
-	| Languages | Level  |
-	| English   | Fluent |
+	| Languages | Level    |
+	| English   | Beginner |
 
 Scenario Outline: Seller is able to edit Language deatails
 	Given Add new '<language>' and '<level>' to the profile
@@ -91,8 +91,8 @@ Scenario Outline:04 Seller is able to add the Certifications details
 	Then The '<Certifications>','<CertificateFrom>' and '<Year>'details should be added successfully
 
 	Examples: 
-	| Certifications   | CertificateFrom | Year |
-	| Istqb Foundation | ISTQB           | 2022 |
+	| Certifications | CertificateFrom  | Year |
+	| Istqb          | ISTQB Foundation | 2022 |
 	
 
 Scenario Outline: seller is able to edit the Certifications details
@@ -100,8 +100,8 @@ Scenario Outline: seller is able to edit the Certifications details
 	Then '<Certifications>','<CertificateFrom>' and '<Year>' details should be updated successfully
 
 	Examples: 
-	| Certifications | CertificateFrom | Year |
-	| Istqb Advance  | ISTQB           | 2023 |
+	| Certifications | CertificateFrom   | Year |
+	| Istqb Advance  | ISTQB  Foundation | 2023 |
 
 Scenario: Seller is able to delete Certifications details
 	Given Delete Certifications details
