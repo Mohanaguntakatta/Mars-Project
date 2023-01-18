@@ -9,7 +9,7 @@ Background:
 	Given I logged in to Mars portal successfully
 	When I navigate to profile page
 
-Scenario Outline:01 Seller is able to add Language details
+Scenario Outline: Seller is able to add Language details
     Given Add new '<language>' and '<level>' to the profile
 	Then '<language>'and '<level>' should be added successfully
 
@@ -29,11 +29,11 @@ Scenario: Seller is able to delete Language deatails
 	Given Delete the existing Language deatails
 	Then  Language deatails should be deleted successfully
 
-#Scenario: Verify validation error for Language tab
-#	Given Left Language Field blank
-#	Then Error message should be displayed 
+Scenario: Verify validation error for Language tab
+	Given Left Language Field blank
+	Then Error message should be displayed 
 
-Scenario Outline:02 Seller is able to add Skills details
+Scenario Outline: Seller is able to add Skills details
 	Given Added new '<Skills>' and '<SkillLevel>' to the profile
 	Then '<Skills>' and '<SkillLevel>' should be added successfully
 
@@ -55,12 +55,12 @@ Scenario:Seller is able to delete Skills details
 	Then Skills should be deleted successfully
 
 
-#Scenario:Verify validation error for Skills tab
-#	Given Left Skills field as blank
-#	Then Error message should be displayed 
+Scenario:Verify validation error for Skills tab
+	Given Left Skills field as blank
+	Then Error message should be displayed for skills
 
 
-Scenario Outline:04 Seller is able to add the Certifications details
+Scenario Outline: Seller is able to add the Certifications details
 	Given Add new '<Certifications>','<CertificateFrom>' and '<Year>' to profile
 	Then The '<Certifications>','<CertificateFrom>' and '<Year>'details should be added successfully
 
@@ -81,12 +81,12 @@ Scenario: Seller is able to delete Certifications details
 	Given Delete Certifications details
 	Then Certifications details should be deleted successfully
 
-#Scenario: Verify validation error for Certifications tab
-#	Given Left Certifications field as blank
-#	Then Following error message should be displayed
+Scenario: Verify validation error for Certifications tab
+	Given Left Certifications field as blank
+	Then Following error message should be displayed
 
 ###########################################################################################################################################
-#Scenario:05 Seller is able to add description on profile
+#Scenario: Seller is able to add description on profile
 #Given I provide the description as "My name is Mohana,i would love to work in IT field."
 #	Then The description details should be added successfully
 
@@ -108,7 +108,7 @@ Scenario: Seller is able to delete Certifications details
 #	|             | "Please, a description is required"          |
 
 
-#Scenario Outline:06 Seller is able to add the Availability on profile 
+#Scenario Outline: Seller is able to add the Availability on profile 
 #	Given Add '<Availability>','<Hours>' and '<Earn Target>' to profile details
 #	Then '<Availability>','<Hours>' and '<Earn Target>' should be added successfully
 
@@ -125,7 +125,7 @@ Scenario: Seller is able to delete Certifications details
 #	| Availability | Hours                    | Earn Target               |
 #	| Full Time    | More than 30hours a week | More than $1000 per month |
 
-#Scenario Outline:03 Seller is able to add Education details
+#Scenario Outline: Seller is able to add Education details
 #	Given Added new '<Country>''<University>' '<Title>' '<Degree>' and '<Graduation Year>" to the profile
 #	Then '<Country>''<University>' '<Title>' '<Degree>' and '<Graduation Year>" should be added successfully
 

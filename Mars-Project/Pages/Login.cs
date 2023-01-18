@@ -36,9 +36,16 @@ namespace Mars_Project.Pages
             // Click login button
                IWebElement LoginButton = driver.FindElement(By.XPath("/html/body/div[2]/div/div/div[1]/div/div[4]/button"));
                LoginButton.Click();
-               Thread.Sleep(2000);
+               Thread.Sleep(3000);
 
             // Check if user is able to logged in succesfully to the Profile page
+        }
+        public void goToProfilePage()
+        {
+            // Go to homepage click on profile tab 
+               IWebElement profileTab = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[1]/div/a[2]"));
+               profileTab.Click();
+
         }
     }
 }

@@ -30,7 +30,7 @@ namespace Mars_Project.Stepdefinitons
         [When(@"I navigate to profile page")]
         public void WhenINavigateToProfilePage()
         {
-            loginobj = new Login();
+            loginobj.goToProfilePage();
         }
 
         [Given(@"Add new '([^']*)' and '([^']*)' to the profile")]
@@ -86,6 +86,24 @@ namespace Mars_Project.Stepdefinitons
 
             driver.Quit();
         }
+
+        [Given(@"Left Language Field blank")]
+        public void GivenLeftLanguageFieldBlank()
+        {
+            languagesobj.ValidatingLanguage();
+          
+        }
+
+        [Then(@"Error message should be displayed")]
+        public void ThenErrorMessageShouldBeDisplayed()
+        {
+            string errorMessage = languagesobj.getErrorMessage();
+
+            Assert.That(errorMessage == "Please enter language and level", "Actual message and Expected message do not match");
+
+            driver.Quit();
+        }
+
 
         [Given(@"Added new '([^']*)' and '([^']*)' to the profile")]
         public void GivenAddedNewAndToTheProfile(string qA, string beginner)
@@ -143,6 +161,23 @@ namespace Mars_Project.Stepdefinitons
             driver.Quit();
         }
 
+        [Given(@"Left Skills field as blank")]
+        public void GivenLeftSkillsFieldAsBlank()
+        {
+            skillobj.ValidatingSkills();
+        }
+
+        [Then(@"Error message should be displayed for skills")]
+        public void ThenErrorMessageShouldBeDisplayedForSkills()
+        {
+            string errorMessage = skillobj.getErrorMessage();
+
+            Assert.That(errorMessage == "Please enter skill and experience level", "Actual message and Expected message do not match");
+
+            driver.Quit();
+        }
+
+
         [Given(@"Add new '([^']*)','([^']*)' and '([^']*)' to profile")]
         public void GivenAddNewAndToProfile(string istqb, string p1, string p2)
         {
@@ -199,7 +234,24 @@ namespace Mars_Project.Stepdefinitons
 
             driver.Quit();
         }
+
+        [Given(@"Left Certifications field as blank")]
+        public void GivenLeftCertificationsFieldAsBlank()
+        {
+            certificationsobj.ValidatingCertifications();
+        }
+
+        [Then(@"Following error message should be displayed")]
+        public void ThenFollowingErrorMessageShouldBeDisplayed()
+        {
+            string errorMessage = certificationsobj.getErrorMessage();
+
+            Assert.That(errorMessage == "Please enter Certification Name, Certification From and Certification Year", "Actual message and Expected message do not match");
+
+            driver.Quit();
+        }
+
     }
 
-    
+
 }

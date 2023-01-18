@@ -57,6 +57,11 @@ namespace Mars_Project.Pages
         }
         public void EditLanguage(string language, string level)
         {
+            // Identify Language button and click
+               IWebElement LanguageButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
+               LanguageButton.Click();
+               Thread.Sleep(1500);
+
             // Identify edit button and click 
                IWebElement LanguageEditButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[1]/i"));
                LanguageEditButton.Click();
@@ -69,7 +74,7 @@ namespace Mars_Project.Pages
                Thread.Sleep(1000);
 
             // Identify language level dropdown and click
-             //  IWebElement UpdateLanguageLevel = driver.FindElement(By.Name("level"));
+             //IWebElement UpdateLanguageLevel = driver.FindElement(By.Name("level"));
             //   UpdateLanguageLevel.Click();
              //  Thread.Sleep(1000);
 
@@ -85,17 +90,48 @@ namespace Mars_Project.Pages
             // Identify update button and click
                IWebElement LanguageUpdate = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
                LanguageUpdate.Click();
-               Thread.Sleep(1000);
+               Thread.Sleep(3000);
 
             // Check if user is able to update the language succesfully 
 
         }public void DeleteLanguage() 
         {
+            // Identify Language button and click
+               IWebElement LanguageButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
+               LanguageButton.Click();
+               Thread.Sleep(1500);
+
             // Identify delete button and click
                IWebElement LanguageDeleteButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/tbody/tr/td[3]/span[2]/i"));
                LanguageDeleteButton.Click();
-               Thread.Sleep(1000);
+               Thread.Sleep(3000);
             // Check if user is able to delete the language succesfully 
+        }
+
+        public void ValidatingLanguage()
+        {
+            // Identify Language button and click
+               IWebElement LanguageButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[1]"));
+               LanguageButton.Click();
+               Thread.Sleep(1500);
+
+            // Identify Add new button and click
+               IWebElement LanguageAddButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[2]/div/div[2]/div/table/thead/tr/th[3]/div"));
+               LanguageAddButton.Click();
+               Thread.Sleep(1500);
+
+            // Identify Add Language textbox leave empty
+               IWebElement LanguageTextbox = driver.FindElement(By.Name("name"));
+               LanguageTextbox.SendKeys(string.Empty);
+               Thread.Sleep(3000);
+        }
+
+
+        public string getErrorMessage()
+        {
+            // verifying error message is displayed or not
+               IWebElement validatingErrorMessage = driver.FindElement(By.XPath("/div/div[contains(text(),'Please enter language and level')]"));
+               return validatingErrorMessage.Text;
         }
     }
 }
