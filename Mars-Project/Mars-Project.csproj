@@ -24,8 +24,6 @@
 
   <ItemGroup>
     <Folder Include="Specflow\" />
-    <Folder Include="Stepdefinitons\" />
-    <Folder Include="Utilities\" />
   </ItemGroup>
 
 </Project>

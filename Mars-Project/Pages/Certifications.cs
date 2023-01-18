@@ -1,15 +1,19 @@
-﻿using OpenQA.Selenium;
+﻿using Mars_Project.Utilities;
+using Microsoft.VisualBasic;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Support.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace Mars_Project.Pages
 {
-    public class Certifications
+    public class Certifications : CommonDriver
     {
-        public void CreateCertifications(IWebDriver driver)
+        public void CreateCertifications(string Certifications, string CertificateFrom, string Year)
         { 
             // Identify Certification button and click
                IWebElement CertificationButton = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[1]/a[4]"));
@@ -23,18 +27,21 @@ namespace Mars_Project.Pages
 
             // Identify ceritificate or award textbox and enter valid input
                IWebElement CertificateTextbox = driver.FindElement(By.Name("certificationName"));
-               CertificateTextbox.SendKeys("Istqb");
+               CertificateTextbox.SendKeys(Certifications);
                Thread.Sleep(1000);
 
             // Identify ceritified from textbox and enter valid input
-               IWebElement CertifiedFromTextbox = driver.FindElement(By.Name("certificationFrom"));
-               CertifiedFromTextbox.SendKeys("ISTQB Foundation");
+            // IWebElement CertifiedFromTextbox = driver.FindElement(By.Name("certificationFrom"));
+            // CertifiedFromTextbox.SendKeys(CertificateFrom);
+            // Thread.Sleep(1000);
+               SelectElement SkilllevelDropdown = new SelectElement(driver.FindElement(By.Name("level")));
+               SkilllevelDropdown.SelectByValue(Year);
                Thread.Sleep(1000);
 
             // Identify year dropdown box
-               IWebElement YearDropdownBox = driver.FindElement(By.Name("certificationYear"));
-               YearDropdownBox.Click();
-               Thread.Sleep(1000);
+            // IWebElement YearDropdownBox = driver.FindElement(By.Name("certificationYear"));
+            // YearDropdownBox.Click();
+           //  Thread.Sleep(1000);
 
             // Choose valid year
                IWebElement ValidYear = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/div/div[2]/div[2]/select/option[3]"));
@@ -48,7 +55,13 @@ namespace Mars_Project.Pages
             // Check if user is able to add certifications succesfully 
         
         }
-        public void EditCertifications(IWebDriver driver)
+        public string GetCertificationsTableDetails()
+        {
+            Thread.Sleep(1500);
+            IWebElement newCertifications = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table"));
+            return newCertifications.GetAttribute("outerText").ToString();
+        }
+        public void EditCertifications(string Certifications, string Year)
         {
             // Identify Certification edit button and click
                IWebElement CertificationEditIcon = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[4]/span[1]/i"));
@@ -58,18 +71,20 @@ namespace Mars_Project.Pages
             // Identify ceritificate or award textbox and update valid input
                IWebElement UpdateCertificate = driver.FindElement(By.Name("certificationName"));
                UpdateCertificate.Clear();
-               UpdateCertificate.SendKeys("Istqb Advance");
+               UpdateCertificate.SendKeys(Certifications);
                Thread.Sleep(1000);
 
             // Identify year dropdown box
-               IWebElement CertificationDropdown = driver.FindElement(By.Name("certificationYear"));
-               CertificationDropdown.Click();
+            // IWebElement CertificationDropdown = driver.FindElement(By.Name("certificationYear"));
+            // CertificationDropdown.Click();
+            // Thread.Sleep(1000);
+               SelectElement SkilllevelDropdown = new SelectElement(driver.FindElement(By.Name("level")));
+               SkilllevelDropdown.SelectByValue(Year);
                Thread.Sleep(1000);
-
             // Update valid year
-               IWebElement CertificateUpdateYear = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/div/div[3]/select/option[2]"));
-               CertificateUpdateYear.Click();
-               Thread.Sleep(1000);
+            // IWebElement CertificateUpdateYear = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/div/div[3]/select/option[2]"));
+            // CertificateUpdateYear.Click();
+            // Thread.Sleep(1000);
 
             // Identify update button and click
                IWebElement CertificateUpdate = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td/div/span/input[1]"));
@@ -78,7 +93,7 @@ namespace Mars_Project.Pages
             // Check if user is able to update certifications succesfully
         }
 
-        public void DeleteCertifications(IWebDriver driver)
+        public void DeleteCertifications()
         {
             // Identify delete button and click
                IWebElement CerificateDelete = driver.FindElement(By.XPath("//*[@id=\"account-profile-section\"]/div/section[2]/div/div/div/div[3]/form/div[5]/div[1]/div[2]/div/table/tbody/tr/td[4]/span[2]/i"));
